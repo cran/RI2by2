@@ -1,0 +1,3 @@
+#exportPattern("^[[:alpha:]]+")
+import(gtools,compiler)
+export(AE.CI,Perm.CI,Robins.CI,pval,comb,nchoosem)
