@@ -3,7 +3,9 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Attributable effects inference for a treatment effect on a
   binary outcome}
-\description{Computes the attributable effects based confidence set for the average treatment effect on a binary outcome}
+\description{Computes the attributable effects based confidence set for
+  the average treatment effect on a binary outcome in experiments where \eqn{m} of
+  \eqn{n} subjects are randomized to treatment.}
 \usage{
 AE.CI(data, level)
 }

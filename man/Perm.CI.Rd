@@ -3,7 +3,9 @@
 %- Also NEED an '\alias' for EACH other topic documented here.
 \title{Permutation test inference for a treatment effect on a
   binary outcome}
-\description{Computes the permutation confidence set for the average treatment effect on a binary outcome}
+\description{Computes the permutation confidence set for the average
+  treatment effect on a binary outcome in experiments where \eqn{m} of
+  \eqn{n} subjects are randomized to treatment.}
 \usage{
 Perm.CI(data, level, nperm)
 }
@@ -17,12 +19,12 @@ Perm.CI(data, level, nperm)
 }
 \details{The permutation confidence set results from inverting
   \eqn{O(n^{4})} hypothesis tests where \eqn{n} is the total number of
-  observations in the observed 2 by 2 table.  For each hypothesis test, \eqn{n \choose m}
-  randomizations could be performed where \eqn{m} is the number of
-  individuals to receive treatment in the experiment, but a sample
-  without replacement of nperm randomizations can be used as an
-  approximation to save computational time if nperm less than or equal
-  to \eqn{n\choose m}}
+  observations in the observed 2 by 2 table.  For each hypothesis test,
+  if \eqn{n \choose m} is less than or equal to nperm, \eqn{n \choose m}
+  randomizations are performed, but if \eqn{n
+    \choose m} is greater than nperm, a random sample with replacement of nperm randomizations
+  are performed.
+  }
 \value{
 \item{tau.hat}{estimated average treatment effect}
 \item{lower}{lower limit to confidence set}

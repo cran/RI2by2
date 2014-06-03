@@ -5,7 +5,8 @@
 \title{Randomization inference for treatment effects on a binary outcome}
 \description{Computes attributable effects based confidence set, 
   permutation test confidence set, and asymptotic confidence interval
-  for the average treatment effect on a binary outcome.}
+  for the average treatment effect on a binary outcome in experiments where \eqn{m} of
+  \eqn{n} subjects are randomized to treatment.}
 \details{
 \tabular{ll}{
 Package: \tab RI2by2\cr
