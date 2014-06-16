@@ -154,7 +154,8 @@ for (g in 1:(a+1)) {
 
 lower = min(tau0[p>=level])
 upper = max(tau0[p>=level])
-output.all = list(tau.hat=tau.hat,lower=lower,upper=upper,tau0=tau0,p=p)
+#output.all = list(tau.hat=tau.hat,lower=lower,upper=upper,tau0=tau0,p=p)
+output.all = list(tau.hat=tau.hat,lower=lower,upper=upper)
 #can also output p, tau0 here for conjecture
 return(output.all)
 }

@@ -29,8 +29,6 @@ Perm.CI(data, level, nperm)
 \item{tau.hat}{estimated average treatment effect}
 \item{lower}{lower limit to confidence set}
 \item{upper}{upper limit to confidence set}
-\item{tau0}{list of hypothesized values for the average treatment effect}
-\item{p}{corresponding list of p-values}
 }
 \references{Rigdon, J. and Hudgens, M.G. ``Randomization inference for treatment effects on a binary outcome.'' Submitted to Statistics in Medicine 2014.}
 \author{Joseph Rigdon \email{jrigdon@bios.unc.edu}}
