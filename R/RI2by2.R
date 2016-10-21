@@ -24,7 +24,7 @@ AE.CI = function(data,level) {
 n = sum(data)
 m = sum(data[1,])
 tau.hat = data[1,1]/m-data[2,1]/(n-m)
-  
+
 f = double()
 A1 = -data[1,2]:data[1,1]
 for (i in (1:length(A1))) {
@@ -89,12 +89,12 @@ pval2 = function(y.1,y.0,delta0,Z) {
  m = length(y.1[is.na(y.1)==0])
  n = m+length(y.0[is.na(y.0)==0])
  tau.hat = mean(y.1[is.na(y.1)==0])-mean(y.0[is.na(y.0)==0])
- dat = matrix(NA,n,3) 
+ dat = matrix(NA,n,3)
  dat[,3] = delta0
  dat[1:m,1] = y.1[1:m]
  dat[(m+1):n,2] = y.0[(m+1):n]
  dat[1:m,2] = y.1[1:m]-delta0[1:m]
- dat[(m+1):n,1] = y.0[(m+1):n]+delta0[(m+1):n]  
+ dat[(m+1):n,1] = y.0[(m+1):n]+delta0[(m+1):n]
  tau0 = mean(dat[,3])
  t.c = Z%*%dat[,1]/(m)-(1-Z)%*%dat[,2]/(n-m)
  p = mean(round(abs(t.c-tau0),15)>=round(abs(tau.hat-tau0),15))
@@ -160,3 +160,34 @@ output.all = list(tau.hat=tau.hat,lower=lower,upper=upper)
 return(output.all)
 }
 Perm.CI = cmpfun(Perm.CI2)
+
+# Version 1.3 new functions below this line####################################
+
+Perm.CI.RLH <- function(data,level,verbose=FALSE,total_tests=NA) {
+  a = data[1,1]
+  b = data[1,2]
+  c = data[2,1]
+  d = data[2,2]
+
+  if (is.na(total_tests)) {
+    result_raw <- .CI_2by2_chiba_tau_v7_approx(a, b, c, d, level, max(data)^3)
+  } else {
+    result_raw <- .CI_2by2_chiba_tau_v7_approx(a, b, c, d, level, total_tests)
+  }
+  result <- result_raw[1:3]
+  result <- c(result, (a/(a+b))-(c/(c+d)) )
+  names(result) <- c("Chiba", "RLH", "Blaker", "tau.hat")
+  if (verbose) {
+    alln.list <- lapply(1:length(result_raw[[9]]),function(i) {
+      c(unlist(result_raw[[9]][i]),unlist(result_raw[[10]][i]))
+    })
+    alln.df <- data.frame(do.call(rbind,alln.list)); rm(alln.list)
+    colnames(alln.df) <- c("n11","n10","n01","n00",
+                           "pv_Chiba_L","pv_Chiba_U",
+                           "pv_RLH","pv_Blaker")
+    result <- c(result, NA)
+    result[[5]] <- alln.df
+    names(result)[length(result)] <- "p_values"
+  }
+  return(result)
+}
