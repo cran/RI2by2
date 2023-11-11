@@ -26,7 +26,7 @@ Robins.CI(data, level)
 Robins, J.M. (1988). Confidence intervals for causal parameters.
 \emph{Statistics in Medicine, 7(7), 773-785}.}
 
-\author{Joseph Rigdon \email{jrigdon@stanford.edu}}
+\author{Joseph Rigdon \email{jrigdon@wakehealth.edu}}
 
 \examples{
 #Example 1 from Robins (1988)

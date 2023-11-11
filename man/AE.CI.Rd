@@ -26,7 +26,7 @@ Rigdon, J.R. and Hudgens, M.G. (2015).
 Randomization inference for treatment effects on a binary outcome.
 \emph{Statistics in Medicine, 34(6), 924-935}.}
 
-\author{Joseph Rigdon \email{jrigdon@stanford.edu}}
+\author{Joseph Rigdon \email{jrigdon@wakehealth.edu}}
 
 \examples{
  ex = matrix(c(8,2,3,7),2,2,byrow=TRUE)

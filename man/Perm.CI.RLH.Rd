@@ -63,7 +63,7 @@ Rigdon, J.R., Loh W.W. and Hudgens, M.G. (forthcoming).
 Response to comment on "Randomization inference for treatment effects on a binary outcome."
 }
 
-\author{Wen Wei Loh \email{wwloh@email.unc.edu}}
+\author{Wen Wei Loh \email{wen.wei.loh@emory.edu}}
 
 \examples{
 ex = matrix(c(11,1,7,21),2,2,byrow=TRUE)
@@ -75,9 +75,5 @@ Perm.CI.RLH(ex,0.05, verbose=TRUE)
 
 ex = matrix(c(33,15,11,37),2,2,byrow=TRUE)
 Perm.CI.RLH(ex,0.05, total_tests=1000)
-\donttest{Perm.CI.RLH(ex,0.05)
-
-ex = matrix(c(40,60,15,85),2,2,byrow=TRUE)
-Perm.CI.RLH(ex,0.05, total_tests=1000)}
-\dontrun{Perm.CI.RLH(ex,0.05)}
+\donttest{Perm.CI.RLH(ex,0.05)}
 }
